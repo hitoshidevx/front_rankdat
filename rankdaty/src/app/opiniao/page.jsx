@@ -1,18 +1,8 @@
   import NavBar from '@/components/NavBar'
-  import Image from 'next/image'
-  import { ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/react/24/solid'
-  import Review from './Review'
-
-  async function getReviews() {
-    const url = "http://localhost:8080/api/reviews"
-    const result = await fetch(url, { next: { revalidate: 3600 }})
-
-    if(!result.ok) {
-      throw Error("Não deu para carregar as reviews amigo :(")
-    }
-
-    return result.json()
-  }
+import Image from 'next/image'
+import { ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/react/24/solid'
+import Review from './Review'
+import { getReviews } from '@/actions/reviews'
 
   export default async function Reviews() {
     

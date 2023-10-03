@@ -27,15 +27,12 @@ export async function create(formData) {
 
 }
 
-export async function getReviews(){
-    const result = await fetch(url)
-    const json = await result.json()
-  
-    if (!result.ok){
-      const message = json.message
-      throw new Error(`Falha ao obter dados das contas. (${result.status} - ${message} )` )
-    }
-  
-    return json
+export async function getReviews() {
+  const result = await fetch(url, { next: { revalidate: 3600 }})
+
+  if(!result.ok) {
+    throw Error("Não deu para carregar as reviews amigo :(")
   }
-  
+
+  return result.json()
+}
