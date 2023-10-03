@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 
-const url = process.env.NEXT_PUBLIC_BASE_URL = "/reviews"
+const url = process.env.NEXT_PUBLIC_BASE_URL + "/reviews"
 
 export async function create(formData) {
 
