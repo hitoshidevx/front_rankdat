@@ -11,7 +11,7 @@ export default function Review({ review }) {
               <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-blue-500" />
             </div>
             <span>{descricaoReview}</span>
-            <DropMenu />
+            <DropMenu review={review} />
           </div>
         </div>
     )
